@@ -21,7 +21,7 @@ A powerful custom Frappe app that extends Kanban view functionality with advance
 ## 🚀 Installation
 
 ```bash
-bench get-app https://github.com/ibrahim317/enhanced_kanban_view.git
+bench get-app https://github.com/leadergroupsaudi/enhanced_kanban_view.git
 bench --site your-site.com install-app enhanced_kanban_view
 bench build
 ```
@@ -43,12 +43,6 @@ bench build
 - Moving cards to columns with rules opens validation dialog
 - Fill required fields to proceed
 - Failed validation returns card to original position
-
-## 🎥 Demo & Tutorial
-
-[![Enhanced Kanban View Demo](https://img.youtube.com/vi/NvSm9p14NiI/maxresdefault.jpg)](https://www.youtube.com/watch?v=NvSm9p14NiI)
-
-📺 **Watch the full demo and tutorial**: [Enhanced Kanban View Features & Usage](https://www.youtube.com/watch?v=NvSm9p14NiI)
 
 ## 🏗️ Architecture
 
@@ -101,13 +95,5 @@ MIT License - see [LICENSE](license.txt)
 - **Bitrix24** - Design inspiration
 - Frappe Framework team
 - All contributors
-
-## 📞 Support
-
-- 📧 Email: i.aboelsoud21@gmail.com
-- 🐛 Issues: GitHub issues
-- 📖 Docs: Code comments and docstrings
-
----
 
 **Made with ❤️ for the Frappe/ERPNext community**

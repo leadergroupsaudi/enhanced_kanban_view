@@ -25,7 +25,38 @@ def quick_kanban_board(doctype, board_name, field_name, project=None):
 			options = field.options
 			break
 		elif same_field and link_field:
-			options = frappe.db.get_list(field.options, fields=["name"], limit_page_length=15)
+			# options = frappe.db.get_list(field.options, fields=["name"], limit_page_length=15)
+			# break
+			''' Filter Sales Stage columns for Lead/Opportunity Kanban to include only active and applicable stages (custom logic) '''
+			if field.options == "Sales Stage" and field_name in ["sales_stage","custom_sales_stage"]:
+				filters = {"is_active": 1}
+
+				if doctype == "Opportunity":
+					or_filters = [
+						{"custom_applicable_for_opportunity": 1},
+						{"custom_applicable_for_both_lead__opportunity": 1}
+					]
+
+				elif doctype == "Lead":
+					or_filters = [
+						{"custom_applicable_for_lead": 1},
+						{"custom_applicable_for_both_lead__opportunity": 1}
+					]
+
+				options = frappe.db.get_list(
+					"Sales Stage",
+					fields=["name"],
+					filters=filters,
+					or_filters=or_filters,
+					order_by="name"
+				)
+
+			else:
+				options = frappe.db.get_list(
+					field.options,
+					fields=["name"]
+				)
+
 			break
 
 	columns = []
@@ -34,8 +65,6 @@ def quick_kanban_board(doctype, board_name, field_name, project=None):
 	elif options and link_field:
 		columns = [f"{item.name}" for item in options]
 
-	print("columns")
-	print(columns)
 	for column in columns:
 		if not column:
 			continue
