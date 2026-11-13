@@ -18,3 +18,34 @@
 .enhanced-add-card:hover {
 	background-color: var(--button-secondary-hover);
 }  */
+/* Inline multi-select filters in the Kanban view */
+.kanban-standard-filter-section .frappe-control {
+	flex: 0 0 auto;
+	width: 210px;
+	max-width: 100%;
+}
+
+.kanban-standard-filter-section .multiselect-list {
+	width: 100%;
+}
+
+.kanban-standard-filter-section .multiselect-list .status-text {
+	position: static;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.kanban-standard-filter-section .multiselect-list .dropdown-menu {
+	min-width: 210px;
+	width: 100%;
+}
+
+.kanban-standard-filter-section .selectable-items {
+	max-height: 260px;
+	overflow-y: auto;
+}
+
+.kanban-standard-filter-section .dropdown-input-wrapper {
+	padding: var(--padding-sm);
+}
